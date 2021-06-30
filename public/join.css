@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background-color:#2c3e50;
+    position: relative;
+  
+}
+
+h1{
+    text-transform: capitalize;
+    margin: 10px 0 20px 0;
+    font-size: 35px;
+    color:#2c3e50;
+}
+
+.errordiv{
+    background-color:wheat;
+    width: 100%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 15px;
+    padding-bottom: 10px;
+   }
+
+.errordiv p{
+  padding: 10px 10px 0 10px;
+  color: #B00020;
+}
+
+.join-div{
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: white;
+    text-align: center;
+    width: 250px;
+    min-height: 330px;
+    border-radius: 5px;
+    border: 2px solid springgreen;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.join-form label {
+    text-align: left;
+    display: block;
+    margin: 10px 0 10px 10px;
+    color: teal;
+}
+
+.join-form input{
+background-color: springgreen;
+border: none;
+border-radius: 4px;
+height: 30px;
+padding: 5px;   
+outline-style: none; 
+color: white;
+width: 90%;
+}
+
+.but{
+margin-left: 50%;
+transform: translateX(-50%);  
+display:block;
+border: none;
+border-radius: 6px;
+padding: 5px;
+width: 30%;
+height: 30px;
+outline-style: none;
+background-color: springgreen;
+color: white;
+cursor: pointer;
+margin-top: 20px;
+font-size: 17px;
+letter-spacing: 1px;
+text-transform: capitalize;
+font-weight: 600;
+}
+
+
+.create-p{
+    margin: 10px;
+}
+
+.or-but{
+    margin: 0;
+    transform: translateX(0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    width: fit-content;
+    
+}
+
+.or-but a{
+    text-decoration: none;
+    color: whitesmoke;
+    
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color:wheat;
+    width: 100%;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 15px;
+    border-top: 1px solid whitesmoke;
+   }
+
+footer p{
+  padding: 5px;
+  color: #2c3e50;
+ }

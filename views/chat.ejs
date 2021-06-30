@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chat.css">
+    <title>chat app</title>
+</head>
+<body>
+    
+    <div class="main-div">
+  <button class="logout">logout</button>  
+<div class="room-list-div">
+    
+</div>
+<div class="main">
+     <nav class="msg-div">
+       <div class="msg-sub-div sub-div">  </div> 
+       <div class="alert-sub-div sub-div"> </div> 
+    </nav>
+    <form class="msg-form">
+    <div class="form-div">
+        <input class="buts" name="message" type="text" placeholder="message" autocomplete="off">   
+        <button class="send-but buts">send</button>
+        <button class="location-but buts">location</button>
+      
+    </div>    
+    </form>
+    </div>
+    </div>
+   
+    <script src="/socket.io/socket.io.js" ></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
+

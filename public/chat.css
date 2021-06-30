@@ -1,0 +1,213 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body{
+   
+    background-color: springgreen;
+  
+}
+.main-div{
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   justify-content: space-between;
+   
+}
+
+.room-list-div{
+   width: 20%;
+   height: 100%;
+   background-color:#2c3e50;
+   overflow-y:scroll;
+
+   
+}
+
+
+.room-list-div::-webkit-scrollbar{
+    display: none;
+}
+
+.main{
+   background-color:  whitesmoke;
+    text-align: center;
+    width: 79%;
+    position: relative;
+}
+h1{
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 1.6rem;
+    margin-left: 5px;
+}
+.msg-div{
+    height: calc(100% - 29px);
+    overflow-y: scroll;
+}
+
+.msg-div::-webkit-scrollbar{
+    display: none;
+}
+
+.room{
+    display: inline-block;
+    width: 95%;
+    padding-bottom: 5px;
+    color: springgreen;
+    text-transform: capitalize;
+    padding-left: 5px;
+    word-wrap: break-word;
+    
+}
+
+
+.text{
+    padding-left: 5px;
+    font-weight: 600;
+    color: springgreen;
+}
+
+
+
+
+.logout{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border: none;
+    padding: 5px;
+    width: 4rem;
+    height: 32px;
+    outline-style: none;
+    background-color:springgreen;
+    color: white;
+    cursor: pointer; 
+    font-size: 1.7; 
+    font-weight: 600;
+   z-index: 1;
+} 
+
+
+.username{
+    display: block;    
+    padding: 5px 0 5px 5px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: lightgreen;
+   
+    }
+
+.sub-div{
+
+width: 100%;
+
+}    
+
+.com-div{
+    position: relative;
+    padding: 5px;
+    border-radius: 3px;
+    color: lightgreen;
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.com-div p{
+
+width: 94%; 
+color: #2c3e50;
+
+}
+
+
+
+.span{
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    
+
+}
+
+.alert-div{
+font-weight: 600;  
+font-size: 20px;  
+color: lightgreen;
+background-color: white;
+text-transform: capitalize;    
+}
+
+
+.chat-div{
+    text-align: left;
+    word-wrap: break-word;
+   
+
+}
+
+
+.chat-p{
+    padding: 0 0 0 5px;
+}
+
+
+.loc-div{
+    text-align: left;
+
+}
+
+.loc-p a{
+ display: inline-block;   
+ text-transform: capitalize;    
+font-weight: 600;
+font-size: 20px;
+margin-left: 50%;
+transform: translate(-50%);
+text-decoration: none;
+
+}
+
+
+.form-div{
+display: flex;
+justify-content: space-between;
+box-sizing: border-box;
+
+}    
+
+.buts{
+    border: none;
+    padding: 5px;
+    outline-style: none;
+    border-right: solid 2px springgreen;
+    border-top: solid 2px springgreen;
+}
+
+.msg-form input{
+    width: 50%;
+   
+}
+
+.send-but{
+    width: 20%;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+
+}
+
+.location-but{
+width: 29%;
+background-color: white;
+font-size: 15px;
+font-weight: 500;
+text-transform: capitalize;
+cursor: pointer;
+}
+
