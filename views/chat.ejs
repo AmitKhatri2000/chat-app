@@ -9,9 +9,15 @@
 <body>
     
     <div class="main-div">
-  <button class="logout">logout</button>  
+      <button class="s">Logout</button>
+      <div class="setting">
+        <input class="changeroom" type="text" placeholder="Change Room">
+        <button class="logout">logout</button>  
+      
+        </div>    
+  
 <div class="room-list-div">
-    
+  
 </div>
 <div class="main">
      <nav class="msg-div">
@@ -28,9 +34,9 @@
     </form>
     </div>
     </div>
-   
-    <script src="/socket.io/socket.io.js" ></script>
-    <script src="js/chat.js"></script>
+    <%- include('partials/loader'); -%>
 </body>
+<script src="/socket.io/socket.io.js" ></script>
+<script src="js/chat.js"></script>
 </html>
 

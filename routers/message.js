@@ -4,7 +4,7 @@ const auth = require('../middleware/auth')
 const router = express.Router();
 
 router.post('/addmsg' , auth ,  async(req,res)=>{ 
-const message = new messages({ ...req.body , owner : req.user._id})
+const message = new messages(req.body)
 try {
 await message.save()
 } catch (error) {   
@@ -13,8 +13,8 @@ console.log(error);
 })
 
 
-router.get('/getmsg' ,auth, async(req,res)=>{
- const room = req.user.room;
+router.post('/getmsg' , async(req,res)=>{
+ const room = req.body.room;
  var data = await messages.find({room})
  try {
     res.status(200).send(data);

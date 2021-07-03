@@ -5,7 +5,48 @@
  const roomdiv = document.querySelector('.room-list-div')
  const $msgdiv = document.querySelector('.msg-div')
  const logout = document.querySelector('.logout')
- 
+ const settingbut = document.querySelector('.s')
+ const settingdiv = document.querySelector('.setting')
+ const changeroom = document.querySelector('.changeroom')
+
+
+// updateuserroom
+
+const updateroom = async(room)=>{
+
+  const res = await fetch('/updateuser',{
+    method : 'POST',
+    body : JSON.stringify({room}),
+    headers: {'content-type':'application/json'}
+    })
+  if (res.status === 200) {
+    const username =  await res.text()
+    location.assign(`/chat?username=${username}&room=${room}`);
+  }
+
+}
+
+
+// settingbut
+
+settingbut.addEventListener('click' , ()=>{
+settingdiv.classList.toggle('active')  
+})
+
+changeroom.addEventListener('keyup' ,(e)=>{
+if (e.keyCode === 13){
+  const room = changeroom.value.trim();
+  if (room) {
+    updateroom(room);
+  }
+  changeroom.value = "";
+}
+
+})
+
+
+
+
 // reload function
 
 window.addEventListener( "pageshow", function ( event ) {
@@ -43,8 +84,12 @@ headers: {'content-type':'application/json'}
 // get msg
 
 
-const getmsg = async()=>{
-  const res = await fetch('/getmsg')
+const getmsg = async(room)=>{
+  const res = await fetch('/getmsg',{
+    method : 'POST',
+    body : JSON.stringify({room}),
+    headers: {'content-type':'application/json'}
+    })
   if (res.status === 200) {
     const data = await res.json();
     return data;
@@ -54,8 +99,12 @@ const getmsg = async()=>{
 
 // userlist fetch
 
-const userlist = async ()=>{
-  const res = await fetch('/userlist');
+const userlist = async (room)=>{
+  const res = await fetch('/userlist' ,{
+    method : 'POST',
+    body : JSON.stringify({room}),
+    headers: {'content-type':'application/json'}
+    });
   if (res.status === 200) {
      data = await res.json();
         return data
@@ -83,8 +132,8 @@ $msgdiv.scrollTop = $msgdiv.scrollHeight
  
  const socket = io()
 
-socket.on('userlist' , async()=>{
-const data = await userlist();
+socket.on('userlist' , async(room)=>{
+const data = await userlist(room);
 roomdiv.innerHTML = `  
 <h1>chat app</h1>
 <h3 class="room">room : ${data[0].room}</h3>
@@ -96,8 +145,8 @@ roomdiv.innerHTML += `<p class="username">${user.username}</p>`
 })
  
 
-socket.on('old-message' , async ()=>{
-const data = await getmsg();
+socket.on('old-message' , async (room)=>{
+const data = await getmsg(room);
 if(data){
   data.forEach(data => {
     msgdiv.innerHTML += `<div class="chat-div com-div">

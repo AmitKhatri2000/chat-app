@@ -5,17 +5,89 @@
 }
 
 body{
-   
-    background-color: springgreen;
+    height: 100vh;
+    width: 100vw;
+    background-color:springgreen;
   
-}
+ }
+
+
 .main-div{
-   height: 100vh;
-   width: 100vw;
+    height: 99%;
+    width: 100%;
    display: flex;
    justify-content: space-between;
    
+
+
+} 
+
+.setting{
+    position: absolute;
+    top: 40px;
+    left: 5px;
+    width: 19%;
+    height: 17%;
+    display: none;
+    border: 2px solid #6dd5ed;
+    background-color: white;
+    box-sizing: border-box;
+
 }
+
+
+
+.setting input {
+width: 90%;
+display: block;
+box-sizing: border-box;
+padding: 5px;
+outline: none;
+margin: 20px auto ;
+border: 1px solid springgreen;
+
+}
+
+.logout{
+    display: block;
+    border: 1px solid springgreen;
+    padding: 5px;
+    width:  50%;
+    height: 32px;
+    background-color: white;
+    outline-style: none;
+    color: teal;
+    cursor: pointer; 
+    font-size: 15px; 
+    font-weight: 600;
+    margin: 0 auto;
+    
+   } 
+
+   .s{
+       position: absolute;
+       top: 3px;
+       left: 3px;
+       width: 65px;
+       height: 35px;
+       font-size: 14px;
+       font-weight: 600;
+       border: 1px solid #2193b0;
+       cursor: pointer;
+       background-image: linear-gradient(to right, #2193b0 , #6dd5ed);
+       color: white;
+   }
+
+   .setting.active{
+    display: block;
+    animation-name: example;
+    animation-duration: 1s;
+   
+   }
+   @keyframes example {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
 
 .room-list-div{
    width: 20%;
@@ -25,7 +97,6 @@ body{
 
    
 }
-
 
 .room-list-div::-webkit-scrollbar{
     display: none;
@@ -40,9 +111,10 @@ body{
 h1{
     text-transform: capitalize;
     margin-bottom: 10px;
+    padding-top: 5px;
     color: white;
-    font-size: 1.6rem;
-    margin-left: 5px;
+    font-size: 25px;
+    text-align: center;
 }
 .msg-div{
     height: calc(100% - 29px);
@@ -59,14 +131,14 @@ h1{
     padding-bottom: 5px;
     color: springgreen;
     text-transform: capitalize;
-    padding-left: 5px;
+    padding-left: 10px;
     word-wrap: break-word;
     
 }
 
 
 .text{
-    padding-left: 5px;
+    padding-left: 10px;
     font-weight: 600;
     color: springgreen;
 }
@@ -74,27 +146,10 @@ h1{
 
 
 
-.logout{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    border: none;
-    padding: 5px;
-    width: 4rem;
-    height: 32px;
-    outline-style: none;
-    background-color:springgreen;
-    color: white;
-    cursor: pointer; 
-    font-size: 1.7; 
-    font-weight: 600;
-   z-index: 1;
-} 
-
 
 .username{
     display: block;    
-    padding: 5px 0 5px 5px;
+    padding: 5px 0 5px 10px;
     text-transform: capitalize;
     font-weight: 600;
     color: lightgreen;
@@ -109,7 +164,6 @@ width: 100%;
 
 .com-div{
     position: relative;
-    padding: 5px;
     border-radius: 3px;
     color: lightgreen;
     background-color: white;
@@ -118,10 +172,14 @@ width: 100%;
 }
 
 .com-div p{
-
+padding-left: 10px;
 width: 94%; 
 color: #2c3e50;
 
+}
+
+.com-div .username{
+ padding: 5px;   
 }
 
 
@@ -190,7 +248,7 @@ box-sizing: border-box;
 }
 
 .msg-form input{
-    width: 50%;
+    width: 48%;
    
 }
 
@@ -203,7 +261,7 @@ box-sizing: border-box;
 }
 
 .location-but{
-width: 29%;
+width: 31%;
 background-color: white;
 font-size: 15px;
 font-weight: 500;
@@ -211,3 +269,72 @@ text-transform: capitalize;
 cursor: pointer;
 }
 
+ 
+@media screen and (max-width: 860px) {
+    h1{
+        font-size: 20px;
+        text-align: center;
+    }
+ .s{
+top: 35px;
+left: 3px;
+width: 19%;
+ }
+
+ .setting{
+     top: 75px;
+     left: 3px;
+     height: 11%;
+
+ }
+
+ .logout{
+  height: 25px;    
+ }
+    
+.room{
+    margin-top: 40px;
+   
+}
+  } 
+
+    
+@media screen and (max-width: 470px) {
+  
+.room-list-div{
+    width: 30%;
+  } 
+
+    
+.main{
+     width: 69%;
+ }
+
+.s{
+top: 35px;
+left: 1px;
+width: 29%;
+}
+
+.setting{
+    width: 29%;
+    left: 1px;
+    height: 19%;
+
+}
+
+.setting input{
+    width: 99%;
+}
+
+.logout{
+    width: 70%;    
+   }
+   
+.alert-div p{
+    text-align: left;
+    padding-left: 10px;   
+     }
+ 
+
+}

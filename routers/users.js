@@ -1,6 +1,7 @@
 const express = require('express')
 const users = require('../models/users')
 const auth = require('../middleware/auth')
+
 const router = new express.Router();
 
 
@@ -15,20 +16,16 @@ try {
 }
 })
 
-router.post('/joinuser' , async(req,res)=>{
+router.post('/joinuser' ,  async(req,res)=>{
 const data = req.body;    
 
 try {
     const user = await users.verifyuser(data.username , data.password);
     const token = await user.gettoken();
-    if (user.token) {
-        throw new Error('please logout of other divices to continue');
-
-    }
-    res.cookie('jwt' , token , {
-        httpOnly: true 
+      res.cookie('jwt' , token , {
+        httpOnly: true ,
+        maxAge : 2147483647
     })   
-   user.token = token;
    user.room = data.room;
    await user.save();
    res.status(200).send();
@@ -38,28 +35,41 @@ try {
 })
 
 router.get('/logout' , auth , async(req , res)=>{
- const user = req.user;
+const user = req.user ;
 try { 
-user.token = "";
-user.room = "";
-await user.save();
 res.cookie('jwt' , "" , {
     httpOnly: true , maxAge : 1
 })   
+user.room = "";
+await user.save();
 res.status(200).send();
 } catch (error) {
    console.log(error);
 }    
 })
 
-router.get('/userlist' , auth , async(req , res)=>{
-    const user = req.user;
-    var userlist = await users.find({room : user.room});
+router.post('/userlist' ,  async(req , res)=>{
+    const room = req.body.room;
+    var userlist = await users.find({room});
     try {
         res.status(200).send(userlist);
     } catch (error) {
         console.log(error);
     }
+
+})
+
+router.post('/updateuser' , auth , async(req,res)=>{
+    try {
+ const user = req.user;
+user.room = req.body.room;
+await user.save();
+res.status(200).send(user.username);
+    } catch (error) {
+        console.log(error);
+    }
+
+
 
 })
 

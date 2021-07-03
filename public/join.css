@@ -6,10 +6,11 @@
 
 body{
     min-height: 100vh;
-    background-color:#2c3e50;
+    background-color: white;
     position: relative;
   
 }
+
 
 h1{
     text-transform: capitalize;
@@ -19,7 +20,7 @@ h1{
 }
 
 .errordiv{
-    background-color:wheat;
+    background-color : whitesmoke;
     width: 100%;
     box-sizing: border-box;
     text-transform: uppercase;
@@ -42,7 +43,7 @@ h1{
     width: 250px;
     min-height: 330px;
     border-radius: 5px;
-    border: 2px solid springgreen;
+    border: 1px solid springgreen;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
@@ -54,14 +55,14 @@ h1{
 }
 
 .join-form input{
-background-color: springgreen;
-border: none;
+background-color: white;
+border: 1px solid springgreen;
 border-radius: 4px;
 height: 30px;
 padding: 5px;   
 outline-style: none; 
-color: white;
 width: 90%;
+color: teal;
 }
 
 .but{
@@ -69,25 +70,28 @@ margin-left: 50%;
 transform: translateX(-50%);  
 display:block;
 border: none;
-border-radius: 6px;
+border-radius: 3px;
 padding: 5px;
-width: 30%;
+width: 40%;
 height: 30px;
 outline-style: none;
-background-color: springgreen;
+background-image: linear-gradient(to right, #2193b0 , #6dd5ed);
 color: white;
 cursor: pointer;
 margin-top: 20px;
 font-size: 17px;
 letter-spacing: 1px;
 text-transform: capitalize;
-font-weight: 600;
+font-weight: 500;
 }
 
 
 .create-p{
     margin: 10px;
-}
+    padding-left: 10px;
+    text-align: left;
+    text-decoration: none;
+   }
 
 .or-but{
     margin: 0;
@@ -111,17 +115,18 @@ footer{
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color:wheat;
+    background-color:whitesmoke;
     width: 100%;
     box-sizing: border-box;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 1px;
     font-size: 15px;
     border-top: 1px solid whitesmoke;
    }
 
 footer p{
+  text-align: center;
   padding: 5px;
   color: #2c3e50;
  }

@@ -13,10 +13,6 @@ room:{
 type: String,
 required : true
 },
-owner:{
-    type : mongoose.Schema.Types.ObjectId,
-    required : true
-   },
 time:{
     type: String
 

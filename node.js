@@ -10,7 +10,8 @@ const userrouter = require('./routers/users')
 const msgrouter = require('./routers/message')
 const socket = require('socket.io')
 const app = express()
-const auth = require('./middleware/auth') 
+const chatauth = require('./middleware/chatauth') 
+const autolog = require('./middleware/autolog')
 const server = http.createServer(app)
 const io = socket(server)
 
@@ -23,8 +24,8 @@ app.use(express.static('public'))
 app.use(bodyparser());
 app.use(cookieparser());
 app.use(userrouter , msgrouter);
-app.get('/' , (req,res)=>res.render('join'));
-app.get('/chat' , auth , (req,res)=>res.render('chat'));
+app.get('/' , autolog , (req,res)=>res.render('join'));
+app.get('/chat' , chatauth , (req,res)=>res.render('chat'));
 app.get('/signup' , (req,res)=>res.render('signup'));
 
 
@@ -37,15 +38,15 @@ io.on('connection'  , (socket)=>{
         socket.join(room)
         socket.emit('alert' , gettime(`welcome ${username}`))
         socket.broadcast.to(room).emit('alert' , gettime(`${username} has joined`))
-        socket.emit('old-message') 
-        io.to(room).emit('userlist')
+        socket.emit('old-message' , room) 
+        io.to(room).emit('userlist' , room)
 
         callback()
         
         socket.on('usermessage' , (msg , callback)=>{
-        
-         io.to(room).emit('message' ,gettime(msg , username)) 
-         callback(gettime(msg , username) , room );
+         const data = gettime(msg , username);
+         io.to(room).emit('message' , data) 
+         callback( data , room );
         
         })
         
@@ -59,7 +60,7 @@ io.on('connection'  , (socket)=>{
         socket.on('disconnect' , ()=>{
        
                 io.to(room).emit('alert' , gettime(`${username} had left`))
-                io.to(room).emit('userlist')
+                io.to(room).emit('userlist' , room)
               
         })
     
